@@ -7,7 +7,9 @@ export const Home = () => {
   const [users, setUsers] = useState()
 
   useEffect(() => {
-    axios.get('http://localhost:4002/api/users').then(res => setUsers(res.data))
+    axios
+      .get('https://peru-app-backend.herokuapp.com/api/users')
+      .then(res => setUsers(res.data))
   }, [])
   return (
     <Container>

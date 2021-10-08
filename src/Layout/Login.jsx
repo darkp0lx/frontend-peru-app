@@ -20,7 +20,7 @@ const Login = () => {
         }}
         onSubmit={(valores, actions) => {
           axios
-            .post('http://localhost:4002/api/login', valores)
+            .post('https://peru-app-backend.herokuapp.com/api/login', valores)
             .then(response => {
               console.log('hola!!')
               localStorage.setItem('token', response.data.token)

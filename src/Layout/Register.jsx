@@ -14,11 +14,6 @@ const Perfil = () => {
   const [{ user }, dispatch] = useStateValue()
   const [userD, setUserD] = useState()
 
-  useEffect(() => {
-    axios
-      .get('http://localhost:4002/api/users/615e6b498c7c014785cb251a')
-      .then(res => console.log(res.data))
-  }, [])
   return (
     <Container>
       <Formik
@@ -36,7 +31,7 @@ const Perfil = () => {
         onSubmit={(valores, actions) => {
           console.log('enviar')
           axios
-            .post('http://localhost:4002/api/users', valores)
+            .post('https://peru-app-backend.herokuapp.com/api/users', valores)
             .then(response => {
               dispatch({
                 type: actionTypes.CHANGE_USER,

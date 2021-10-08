@@ -17,9 +17,11 @@ const Perfil = () => {
   // validate any phone number (defaults to India for country)
 
   useEffect(() => {
-    axios.get(`http://localhost:4002/api/users/${user.data.id}`).then(res => {
-      setUserNew(res.data)
-    })
+    axios
+      .get(`https://peru-app-backend.herokuapp.com/api/users/${user.data.id}`)
+      .then(res => {
+        setUserNew(res.data)
+      })
   }, [user])
   return (
     <Container>
@@ -38,7 +40,10 @@ const Perfil = () => {
           onSubmit={(valores, actions) => {
             console.log('enviar')
             axios
-              .put(`http://localhost:4002/api/users/${user.data.id}`, valores)
+              .put(
+                `https://peru-app-backend.herokuapp.com/api/users/${user.data.id}`,
+                valores
+              )
               .then(response => {
                 alert('exito al guardar')
                 history.push('/')
